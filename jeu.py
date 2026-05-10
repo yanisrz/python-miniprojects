@@ -1,10 +1,11 @@
+
 import random
 import time 
 # Différentes librairies natives utilisées
 # On demande à l'utilisateur de choisir le niveau
 niveau = input("     Choisis ton niveau de difficulté (facile = 1, difficile = 2) : ")
 # Le prix est généré en fonction du niveau choisi
-grand_prix = 50 # Valeur par défaut du grand prix 
+grand_prix = 50             # Valeur par défaut du grand prix 
 if niveau == "1":
     print("     Tu as choisi le niveau facile")
 
@@ -14,22 +15,21 @@ elif niveau == "2":
     
 else:
     print("    😡  Niveau de difficulté pas valide, le jeu se lance en mode facile par défaut ")
-prix = random.randint(1,grand_prix)
-    
 
-debut_chrono = time.time()
-# On ajoute le grand prix dans le texte
+prix = random.randint(1,grand_prix)
 devine = (f"     Devine le prix entre 1 et {grand_prix} : ")
+debut_chrono = time.time()
 compteur: int = 0
+
 print( devine) 
 # On débute une boucle tant que "prix" est différent de "devine". Au début elle l'est car ce n'est même pas un nombre entier 
 while devine != prix:
     compteur += 1
     # On demande à l'utilisateur de deviner
-    devine = input("     \n     ")
+    devine = input("     \n     ").strip()
     # On vérifie que "devine" est un nombre entier
     if devine.isdigit() == False:
-        print("     !!Ce n'est pas un nombre, essaie encore !!😡\n")
+        print(f"     😡 !! \"{devine}\" n'est pas un nombre, essaie encore !!\n")
         # On remonte au haut de la boucle
         continue
     
